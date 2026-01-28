@@ -1,18 +1,24 @@
-# SAEPSaúde
+# SAEPSaúde 🏃‍♂️
+
+Sistema web para registro de atividades físicas.
+
+## Tecnologias
+- Python
+- Flask
+- PostgreSQL
+- SQLAlchemy
+- HTML, CSS, JS
+
+## Funcionalidades
+- Filtro por tipo
+- Paginação
+- Likes
+- Comentários
+- Persistência
 
 ## Como rodar
 
-1. Criar banco PostgreSQL: saepsaude_db
-
-2. Ativar venv
-
-3. Instalar:
-pip install -r requirements.txt
-
-4. Criar tabelas:
-flask shell
-from app import db
-db.create_all()
-
-5. Rodar:
-python app.py
+### 1. Clonar
+```bash
+git clone https://github.com/SEU_USUARIO/saepsaude.git
+cd saepsaude
