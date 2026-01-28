@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+<div class="left">
+{% if empresa %}
+<img src="{{empresa.logo_url}}" width="120"><br>
+<h2>{{empresa.nome}}</h2>
+{% endif %}
+
+<p>Total atividades: {{total_ativ}}</p>
+<p>Total calorias: {{total_cal}}</p>
+</div>
+
+<div class="right">
+
+<div class="filtros">
+<a href="/">Todos</a>
+<a href="/?tipo=corrida">Corrida</a>
+<a href="/?tipo=caminhada">Caminhada</a>
+<a href="/?tipo=trilha">Trilha</a>
+</div>
+
+{% for a in atividades %}
+
+<div class="card">
+
+<h3>{{a.tipo}}</h3>
+
+<img src="{{a.usuario.foto_url}}" width="50">
+{{a.usuario.nome}}
+
+<p>Distância: {{a.distancia_m}} m</p>
+<p>Duração: {{a.duracao_min}} min</p>
+<p>Calorias: {{a.calorias}}</p>
+
+<button onclick="like({{a.id}})">
+❤️ <span id="like-{{a.id}}">{{a.likes_count}}</span>
+</button>
+
+<button onclick="document.getElementById('c-{{a.id}}').style.display='block'">
+💬
+</button>
+
+<div id="c-{{a.id}}" style="display:none">
+
+<input id="coment-{{a.id}}" placeholder="Escrever um comentário...">
+
+<button onclick="enviarComentario({{a.id}})">Enviar</button>
+
+<div id="lista-{{a.id}}">
+{% for c in a.comentarios %}
+<p>{{c.texto}}</p>
+{% endfor %}
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+<div class="paginacao">
+{% for i in range(1,paginas+1) %}
+
+<a href="/?page={{i}}{% if tipo %}&tipo={{tipo}}{% endif %}"
+class="{% if i==page %}ativo{% endif %}">
+{{i}}
+</a>
+
+{% endfor %}
+</div>
+
+</div>
+</div>
+
+{% endblock %}

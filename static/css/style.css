@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body{
+ margin:0;
+ font-family:Inter;
+}
+
+.container{
+ display:flex;
+}
+
+.left{
+ width:25%;
+ background:#333333;
+ color:white;
+ padding:20px;
+}
+
+.right{
+ width:75%;
+ padding:20px;
+}
+
+.card{
+ border:1px solid #ccc;
+ margin-bottom:15px;
+ padding:10px;
+}
+
+.ativo{
+ background:#483DAD;
+ color:white;
+ padding:5px 10px;
+}
+
+a{
+ text-decoration:none;
+ margin:5px;
+}
